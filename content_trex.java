@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-public class SimpleExpenseTracker {
+public class Trex {
     private static final String EXPENSES_FILE = "expenses.txt";
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int choice;
 
         do {
@@ -19,9 +19,9 @@ public class SimpleExpenseTracker {
             scanner.nextLine(); 
 
             switch (choice) {
-                case 1: addExpense(scanner); break;
+                case 1: addExpense(sc); break;
                 case 2: viewExpenses(); break;
-                case 3: deleteExpense(scanner); break;
+                case 3: deleteExpense(sc); break;
                 case 4: System.out.println("Exiting..."); break;
                 default: System.out.println("Invalid choice. Please try again.");
             }
@@ -30,11 +30,11 @@ public class SimpleExpenseTracker {
         scanner.close();
     }
 
-    private static void addExpense(Scanner scanner) {
+    private static void addExpense(Scanner sc) {
         System.out.print("Enter expense description: ");
-        String description = scanner.nextLine();
+        String description = sc.nextLine();
         System.out.print("Enter expense amount: ");
-        double amount = scanner.nextDouble();
+        double amount = sc.nextDouble();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(EXPENSES_FILE, true))) {
             writer.write(description + "|" + amount);
@@ -58,9 +58,9 @@ public class SimpleExpenseTracker {
         }
     }
 
-    private static void deleteExpense(Scanner scanner) {
+    private static void deleteExpense(Scanner sc) {
         System.out.print("Enter the description of the expense to delete: ");
-        String descriptionToDelete = scanner.nextLine();
+        String descriptionToDelete = sc.nextLine();
         File file = new File(EXPENSES_FILE);
         File tempFile = new File("temp.txt");
 
