@@ -21,5 +21,5 @@ TREX is a simple console-based expense tracker application that helps users mana
 
 **Clone the Repository**:
    
-   git clone https://github.com/yourusername/TREX.git
+   git clone https://github.com/Shrutz72/TREX.git
    cd TREX
